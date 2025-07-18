@@ -1,28 +1,79 @@
+/* --------------------------------------------------------------------------
+ * 1. CSS Variables: Fonts and Design Tokens
+ * ------------------------------------------------------------------------*/
 :root {
-  --bg-color: #6a9673;
-  --text-bg-color: #dfe3dd;
-  --text-color: #111111;
-  --link-color: #08469e;
-  --link-visited-color: #c40d6e;
-  --border-color: #454b3c;
+  --font-mono: 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  --duration-transition: 0.3s;
+
+  /* Light Theme Tokens */
+  --light-bg: #74baef;
+  --light-surface: #dfe3dd;
+  --light-text: #111111;
+  --light-link: #08469e;
+  --light-link-visited: #c40d6e;
+  --light-border: #454b3c;
+  --light-emoji-bg: #ffffff;
+
+  /* Dark Theme Tokens */
+  --dark-bg: #040f35;
+  --dark-surface: #09332b;
+  --dark-text: #72f73a;
+  --dark-link: #5595ef;
+  --dark-link-visited: #f89acc;
+  --dark-border: #b2cb8c;
+  --dark-emoji-bg: #ffffff;
+
+  /* Active Theme Aliases (default to light) */
+  --bg: var(--light-bg);
+  --surface: var(--light-surface);
+  --text: var(--light-text);
+  --link: var(--light-link);
+  --link-visited: var(--light-link-visited);
+  --border: var(--light-border);
+  --emoji-bg: var(--light-emoji-bg);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #040f35;
-    --text-bg-color: #09332b;
-    --text-color: #72f73a;
-    --link-color: #5595ef;
-    --link-visited-color: #e558a3;
-    --border-color: #b2cb8c;
+    --bg: var(--dark-bg);
+    --surface: var(--dark-surface);
+    --text: var(--dark-text);
+    --link: var(--dark-link);
+    --link-visited: var(--dark-link-visited);
+    --border: var(--dark-border);
+    --emoji-bg: var(--dark-emoji-bg);
   }
 }
 
+[data-color-mode='light'] {
+  --bg: var(--light-bg);
+  --surface: var(--light-surface);
+  --text: var(--light-text);
+  --link: var(--light-link);
+  --link-visited: var(--light-link-visited);
+  --border: var(--light-border);
+  --emoji-bg: var(--light-emoji-bg);
+}
+
+[data-color-mode='dark'] {
+  --bg: var(--dark-bg);
+  --surface: var(--dark-surface);
+  --text: var(--dark-text);
+  --link: var(--dark-link);
+  --link-visited: var(--dark-link-visited);
+  --border: var(--dark-border);
+  --emoji-bg: var(--dark-emoji-bg);
+}
+
 html {
-  font-family: 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   padding: 0;
-  background-color: var(--bg-color);
+  font-family: var(--font-mono);
+  background-color: var(--bg);
   background-image: url(noiseTexture.png);
+  transition:
+    background-color var(--duration-transition) ease,
+    color var(--duration-transition) ease;
 }
 
 body {
@@ -32,46 +83,39 @@ body {
   margin: 0 0.5em;
   padding: 0.25em 0.5em;
   max-width: 32em;
-
   box-sizing: border-box;
-  border-color: var(--border-color);
+  border-color: var(--border);
   border-width: 0.0625em 0.25em 0.125em 0.25em;
   border-style: solid solid solid dashed;
-
-  background-color: var(--text-bg-color);
-  color: var(--text-color);
-
-  opacity: 0.9;
+  border-radius: 0 0.5em 0.5em 0;
+  box-shadow: 0.125em 0.125em 0.125em var(--border);
+  background-color: var(--surface);
+  color: var(--text);
+  opacity: 0.8;
+  transition:
+    background-color var(--duration-transition) ease,
+    color var(--duration-transition) ease,
+    border-color var(--duration-transition) ease,
+    box-shadow var(--duration-transition) ease;
 }
 
 h1 {
-  margin: 0 0 0.5em 0;
-  background-color: var(--bg-color);
+  margin: 0.5em 0.125em 0 -0.125em;
+  padding: 0.25em;
+  background-color: var(--bg);
+  border-radius: 0 0.125em 0.125em 0;
+  box-shadow: 0.125em 0.125em 0.125em var(--border);
+  display: inline-block;
+  transition:
+    background-color var(--duration-transition) ease,
+    box-shadow var(--duration-transition) ease;
 }
 
-a:link {
-  color: var(--link-color);
-  text-decoration-thickness: 0.125em;
-  text-underline-offset: 0.125em;
-}
-
-a:visited {
-  color: var(--link-visited-color);
-}
-
-a:hover {
-  color: var(--text-color);
-  text-decoration-line: none;
-}
-
-a:active {
-  color: var(--link-visited-color);
-}
-
-s {
-  text-decoration: none;
-  text-decoration-thickness: 0.125em;
-  text-decoration-color: var(--border-color);
+p,
+ul,
+li,
+aside {
+  margin: 1.5em 0 0.5em 0;
 }
 
 ul {
@@ -79,8 +123,82 @@ ul {
   list-style: none;
 }
 
-li {
-  margin: 1em 0;
+a:link {
+  color: var(--link);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.125em;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+a:hover {
+  color: var(--text);
+  text-decoration-line: none;
+}
+
+a:active {
+  color: var(--link-visited);
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  transition:
+    color var(--duration-transition) ease,
+    text-decoration-color var(--duration-transition) ease;
+}
+
+s {
+  text-decoration-thickness: 0.125em;
+  text-decoration-color: var(--border);
+  transition:
+    text-decoration-color var(--duration-transition) ease;
+}
+
+.emoji {
+  background-color: var(--emoji-bg);
+  padding: 0.125em;
+  border-radius: 0.125em;
+  transition:
+    background-color var(--duration-transition) ease;
+}
+
+p img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0.5em 0.5em 0.5em var(--border);
+  transition:
+    box-shadow var(--duration-transition) ease;
+}
+
+hr {
+  border-width: 0.5em 0 0 0;
+  border-style: dashed;
+  border-color: var(--border);
+  margin: 2em 0;
+  transition:
+    border-color var(--duration-transition) ease;
+}
+
+button {
+  margin: 2em 0 0 0;
+  padding: 0.25em 0.5em;
+  font-family: var(--font-mono);
+  font-weight: bold;
+  letter-spacing: 1pt;
+  background-color: var(--surface);
+  color: var(--text);
+  border-style: solid;
+  border-color: var(--border);
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-transition) ease,
+    color var(--duration-transition) ease,
+    border-color var(--duration-transition) ease;
 }
 
 @media screen and (min-width: 768px) {
@@ -89,5 +207,21 @@ li {
     margin: 1em 2em;
     padding: 1em 1.5em;
     border-width: 0.125em 0.5em 0.25em 0.5em;
+  }
+
+  header {
+    margin: 0.5em 0 0.5em 0;
+    position: relative;
+  }
+
+  h1 {
+    margin: 0 0 0 -0.125em;
+  }
+
+  .color-scheme-button {
+    margin: 0;
+    position: absolute;
+    top: 0.5em;
+    right: 0;
   }
 }
