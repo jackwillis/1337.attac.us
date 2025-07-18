@@ -4,6 +4,10 @@ image: jackwillis/1337.attac.us
 servers:
   - 1337.attac.us
 
+proxy:
+  ssl: true
+  host: 1337.attac.us
+
 ssh:
   user: ubuntu
 
