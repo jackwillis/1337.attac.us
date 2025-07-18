@@ -1,15 +1,17 @@
-service: website-1337-attac-us
-image: ghcr.io/jackwillis/1337.attac.us:latest
+service: web-1337-attac-us
+image: jackwillis/1337.attac.us
 
 servers:
-  web:
-    hosts:
-      - 1337.attac.us
-    user: ubuntu
-    roles:
-      - web
+  - 1337.attac.us
+
+ssh:
+  user: ubuntu
+
+builder:
+  arch: amd64
 
 registry:
   server: ghcr.io
-  username: <%= ENV["KAMAL_REGISTRY_USER"] %>
-  password: <%= ENV["KAMAL_REGISTRY_PASSWORD"] %>
+  username: KAMAL_REGISTRY_USER
+  password:
+    - KAMAL_REGISTRY_PASSWORD
