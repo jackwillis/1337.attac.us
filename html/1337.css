@@ -1,0 +1,18 @@
+html {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16pt;
+  line-height: 28px;
+  letter-spacing: 1pt;
+  margin: 0;
+  padding: 0.5em 0.25em;
+  max-width: 32em;
+  min-height: 80vh;
+  border-color: gray;
+  border-width: 0 0.5em 0 0.25em;
+  border-style: none dashed none solid;
+}
