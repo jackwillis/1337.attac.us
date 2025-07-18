@@ -24,11 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function createColorSchemeButton(mode) {
   const button = document.createElement('button');
   button.classList.add('color-scheme-button');
-  button.setAttribute('aria-hidden', 'true');
 
   button.updateUiText = function () {
-    this.innerText = mode === 'light' ? '🌘 Dark' : '☀️ Light';
-    this.setAttribute('data-color-mode', getOppositeMode(mode));
+    const oppositeMode = getOppositeMode(mode);
+    this.innerText = mode === 'light' ? '🌘' : '☀️';
+    const uiText = `Switch to ${oppositeMode} mode`;
+    this.setAttribute('title', uiText);
+    this.setAttribute('aria-label', uiText);
+    this.setAttribute('data-color-mode', oppositeMode);
   };
 
   button.addEventListener('click', () => {
