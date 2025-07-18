@@ -1,53 +1,77 @@
 :root {
-  --bg-color: #116622;
-  --text-bg-color: #eeeeee;
+  --bg-color: #6a9673;
+  --text-bg-color: #dfe3dd;
   --text-color: #111111;
   --link-color: #08469e;
   --link-visited-color: #c40d6e;
   --border-color: #454b3c;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #040f35;
+    --text-bg-color: #09332b;
+    --text-color: #72f73a;
+    --link-color: #5595ef;
+    --link-visited-color: #e558a3;
+    --border-color: #b2cb8c;
+  }
+}
+
 html {
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-family: 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   padding: 0;
   background-color: var(--bg-color);
+  background-image: url(noiseTexture.png);
 }
 
 body {
-  font-size: 16pt;
+  font-size: 14pt;
   line-height: 1.5;
   letter-spacing: 1pt;
-  margin: 0.5em 0 0.5em 0;
-  padding: 0.5em;
+  margin: 0 0.5em;
+  padding: 0.25em 0.5em;
   max-width: 32em;
 
   box-sizing: border-box;
   border-color: var(--border-color);
-  border-width: 0 0.25em 0.125em 0.25em;
-  border-style: none solid solid dashed;
+  border-width: 0.0625em 0.25em 0.125em 0.25em;
+  border-style: solid solid solid dashed;
 
   background-color: var(--text-bg-color);
   color: var(--text-color);
+
+  opacity: 0.9;
 }
 
 h1 {
-  margin: 0.5em 0 0.5em 0;
+  margin: 0 0 0.5em 0;
+  background-color: var(--bg-color);
 }
 
 a:link {
   color: var(--link-color);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.125em;
 }
 
 a:visited {
   color: var(--link-visited-color);
 }
 
-a:hover, a:active {
-  text-decoration: none;
+a:hover {
+  color: var(--text-color);
+  text-decoration-line: none;
 }
 
 a:active {
-  color: var(--text-color);
+  color: var(--link-visited-color);
+}
+
+s {
+  text-decoration: none;
+  text-decoration-thickness: 0.125em;
+  text-decoration-color: var(--border-color);
 }
 
 ul {
@@ -61,8 +85,9 @@ li {
 
 @media screen and (min-width: 768px) {
   body {
-    margin: 1em 0 1em 0;
-    padding: 1em;
-    border-width: 0 0.5em 0.25em 0.5em;
+    font-size: 16pt;
+    margin: 1em 2em;
+    padding: 1em 1.5em;
+    border-width: 0.125em 0.5em 0.25em 0.5em;
   }
 }
