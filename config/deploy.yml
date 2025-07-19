@@ -16,5 +16,5 @@ builder:
 
 registry:
   server: ghcr.io
-  username: <%= ENV['GITHUB_TOKEN'] || ENV['KAMAL_REGISTRY_USER'] %>
-  password: <%= ENV['GITHUB_TOKEN'] || ENV['KAMAL_REGISTRY_PASSWORD'] %>
+  username: <%= ENV['KAMAL_REGISTRY_USER'] %>
+  password: <%= ENV['KAMAL_REGISTRY_PASSWORD'] %>

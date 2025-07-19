@@ -7,7 +7,7 @@ on:
 env: {}
 
 jobs:
-  build-and-push-image:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -33,3 +33,6 @@ jobs:
 
       - name: Build and deploy with Kamal
         run: bundle exec kamal deploy
+        env:
+          KAMAL_REGISTRY_USER: ${{ secrets.GITHUB_TOKEN }}
+          KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
