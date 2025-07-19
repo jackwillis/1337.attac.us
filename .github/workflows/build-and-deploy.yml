@@ -42,4 +42,4 @@ jobs:
         with:
           package-name: '1337.attac.us'
           package-type: 'container'
-          min-versions-to-keep: 2
+          min-versions-to-keep: 1
