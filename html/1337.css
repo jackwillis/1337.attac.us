@@ -75,7 +75,7 @@ html {
   padding: 0;
   font-family: var(--font-mono);
   background-color: var(--bg);
-  background-image: url(noiseTexture.png);
+  background-image: url(noiseTexture-min.png);
   transition:
     background-color var(--duration-transition) ease,
     color var(--duration-transition) ease;
@@ -234,6 +234,7 @@ pre {
   text-align: left;
   width: 10em;
   margin: auto;
+
 }
 
 @media screen and (min-width: 768px) {
