@@ -30,6 +30,8 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H 1337.attac.us >> ~/.ssh/known_hosts
+          ssh-keyscan -H $(dig +short 1337.attac.us A) >> ~/.ssh/known_hosts
+          ssh-keyscan -H $(dig +short 1337.attac.us AAAA) >> ~/.ssh/known_hosts
 
       - name: Build and deploy with Kamal
         run: bundle exec kamal deploy
