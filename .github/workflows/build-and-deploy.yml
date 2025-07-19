@@ -36,3 +36,10 @@ jobs:
         env:
           KAMAL_REGISTRY_USER: ${{ secrets.GITHUB_TOKEN }}
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clean up old packages
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: '1337.attac.us'
+          package-type: 'container'
+          min-versions-to-keep: 2
