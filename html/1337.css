@@ -1,8 +1,13 @@
 /* --------------------------------------------------------------------------
  * 1. CSS Variables: Fonts and Design Tokens
  * ------------------------------------------------------------------------*/
+@font-face {
+  font-family: 'color-emoji';
+  src: local('Apple Color Emoji'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local('Noto Color Emoji');
+}
+
 :root {
-  --font-mono: 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  --font-mono: 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace, 'color-emoji';
 
   --duration-transition: 0.3s;
 
@@ -17,7 +22,7 @@
 
   /* Dark Theme Tokens */
   --dark-bg: #040f35;
-  --dark-surface: #09332b;
+  --dark-surface: #032821;
   --dark-text: #72f73a;
   --dark-link: #5595ef;
   --dark-link-visited: #f89acc;
@@ -114,7 +119,8 @@ h1 {
 p,
 ul,
 li,
-aside {
+aside,
+figure {
   margin: 1.5em 0 0.5em 0;
 }
 
@@ -168,14 +174,6 @@ s {
   font-size: 125%;
 }
 
-p img {
-  max-width: 100%;
-  height: auto;
-  box-shadow: 0.5em 0.5em 0.5em var(--border);
-  transition:
-    box-shadow var(--duration-transition) ease;
-}
-
 hr {
   border-width: 0.5em 0 0 0;
   border-style: dashed;
@@ -191,16 +189,37 @@ button {
   font-family: var(--font-mono);
   font-weight: bold;
   letter-spacing: 1pt;
+  box-shadow: 0.125em 0.125em 0.125em var(--bg);
   background-color: var(--surface);
   color: var(--text);
-  border-style: solid;
-  border-color: var(--border);
+  border-style: none;
   border-radius: 0.25em;
   cursor: pointer;
   transition:
     background-color var(--duration-transition) ease,
-    color var(--duration-transition) ease,
-    border-color var(--duration-transition) ease;
+    color var(--duration-transition) ease;
+}
+
+figure {
+  padding: 0;
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: 0.5em 0.5em 0.5em var(--border);
+  transition:
+    box-shadow var(--duration-transition) ease;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: center;
+  transition:
+    transform var(--duration-transition) ease;
+}
+
+figure:hover img {
+  transform: scale(1.02); /* Zoom in slightly */
 }
 
 @media screen and (min-width: 768px) {
