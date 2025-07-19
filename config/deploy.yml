@@ -9,13 +9,12 @@ proxy:
   host: 1337.attac.us
 
 ssh:
-  user: ubuntu
+  user: george
 
 builder:
   arch: amd64
 
 registry:
   server: ghcr.io
-  username: KAMAL_REGISTRY_USER
-  password:
-    - KAMAL_REGISTRY_PASSWORD
+  username: <%= ENV['GITHUB_TOKEN'] || ENV['KAMAL_REGISTRY_USER'] %>
+  password: <%= ENV['GITHUB_TOKEN'] || ENV['KAMAL_REGISTRY_PASSWORD'] %>
