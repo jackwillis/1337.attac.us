@@ -27,7 +27,7 @@ function createColorSchemeButton(mode) {
 
   button.updateUiText = function () {
     const oppositeMode = getOppositeMode(mode);
-    this.innerText = mode === 'light' ? '🌘' : '☀️';
+    this.innerText = mode === 'light' ? '🌘 DM' : '☀️ LM';
     const uiText = `Switch to ${oppositeMode} mode`;
     this.setAttribute('title', uiText);
     this.setAttribute('aria-label', uiText);
