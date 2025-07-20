@@ -75,7 +75,7 @@ html {
   padding: 0;
   font-family: var(--font-mono);
   background-color: var(--bg);
-  background-image: url(noiseTexture-min.png);
+  background-image: url(images/noiseTexture-min.png);
   transition:
     background-color var(--duration-transition) ease,
     color var(--duration-transition) ease;
