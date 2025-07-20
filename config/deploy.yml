@@ -1,5 +1,5 @@
-service: web-1337-attac-us
-image: jackwillis/1337.attac.us
+service: 1337-attac-us
+image: red-panda-industries/1337.attac.us
 
 servers:
   - 1337.attac.us
