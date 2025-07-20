@@ -83,11 +83,11 @@ html {
 
 body {
   font-size: 14pt;
-  line-height: 1.5;
+  line-height: 1.5em;
   letter-spacing: 1pt;
   margin: 0 0.5em;
   padding: 0.25em 0.5em 2em 0.5em;
-  max-width: 32em;
+  max-width: 35em;
   box-sizing: border-box;
   border-color: var(--border);
   border-width: 0.0625em 0.5em 0.125em 0.25em;
@@ -121,7 +121,7 @@ p,
 ul,
 li,
 aside {
-  margin: 1.5em 0 0.5em 0;
+  margin: 1em 0 0.5em 0;
 }
 
 ul {
@@ -153,6 +153,11 @@ a:visited,
 a:hover,
 a:active {
   transition: none;
+}
+
+strong {
+  background-color: var(--text);
+  color: var(--bg);
 }
 
 s {
