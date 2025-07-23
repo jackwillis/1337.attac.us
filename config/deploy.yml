@@ -17,4 +17,4 @@ builder:
 registry:
   server: ghcr.io
   username: jackwillis
-  password: <%= ENV['KAMAL_REGISTRY_PASSWORD'] %>
+  password: <%= ENV["KAMAL_REGISTRY_PASSWORD"] %>

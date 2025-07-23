@@ -108,6 +108,8 @@ h1 {
   margin: 0.5em 0.125em 0 -0.125em;
   padding: 0.25em;
   letter-spacing: 2pt;
+  font-size: 150%;
+  line-height: 1.5;
   background-color: var(--bg);
   border-radius: 0 0.125em 0.125em 0;
   box-shadow: 0.125em 0.125em 0.125em var(--border);
@@ -115,6 +117,10 @@ h1 {
   transition:
     background-color var(--duration-transition) ease,
     box-shadow var(--duration-transition) ease;
+}
+
+h1 a:link {
+  text-underline-offset: 0.25em;
 }
 
 p,
@@ -252,6 +258,7 @@ pre {
   }
 
   h1 {
+    font-size: 200%;
     margin: 0 0 0 -0.125em;
   }
 

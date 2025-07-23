@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 group :development do
-  gem 'kamal', '~> 2.7'
+  gem "kamal", "~> 2.7"
 end
