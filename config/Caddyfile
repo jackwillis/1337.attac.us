@@ -1,9 +1,9 @@
 :80 {
-	# Health check endpoint
-	handle_path /up {
-		respond "OK" 200
-	}
+  # Health check endpoint
+  handle_path /up {
+    respond "OK" 200
+  }
 
-	root * /srv/www
+  root * /srv/www
   file_server
 }
