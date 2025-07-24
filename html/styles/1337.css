@@ -128,6 +128,7 @@ ul,
 li,
 aside {
   margin: 1em 0 0.5em 0;
+  line-height: 1.5em;
 }
 
 ul {
