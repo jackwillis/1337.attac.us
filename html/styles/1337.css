@@ -123,6 +123,10 @@ h1 a:link {
   text-underline-offset: 0.25em;
 }
 
+h2 {
+  margin: 1.5em 0 0.5em 0;
+}
+
 p,
 ul,
 li,
